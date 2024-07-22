@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #007bff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            font-size: 16px;
+        }
+        .sidebar a:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .header {
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 200px;
+        }
+        .card h2 {
+            margin: 0;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#">Dashboard</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+    </div>
+    <div class="content">
+        <div class="header">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <h2>Card 1</h2>
+                <p>Content for card 1</p>
+            </div>
+            <div class="card">
+                <h2>Card 2</h2>
+                <p>Content for card 2</p>
+            </div>
+            <div class="card">
+                <h2>Card 3</h2>
+                <p>Content for card 3</p>
+            </div>
+            <div class="card">
+                <h2>Card 4</h2>
+                <p>Content for card 4</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
