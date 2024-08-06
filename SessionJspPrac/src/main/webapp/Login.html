@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="icon" href="https://raw.githubusercontent.com/tarun261003/Portfolio/main/tr.ico">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"],
+        .login-container input[type="email"] 
+        {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .login-container .message {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .login-container .message a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .login-container .message a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form onsubmit="return validate()" action='Read.jsp' method="post" name="Userdata">
+            <input type="text" name="uname" placeholder="Username" required autocomplete="off">
+            <input type="email" name="email" placeholder="abc@gmail.com" required autocomplete="off">
+            <input type="password" name="passw" placeholder="Password" required autocomplete="off">
+            <input type="submit" value="Login">
+     
+        </form>
+    </div>
+</body>
+<script>
+function createAlertBox() {
+    var alertBox = document.createElement('div');
+    alertBox.id = 'customAlert';
+    alertBox.className = 'alert';
+    alertBox.innerHTML = `
+        <div class="alert-content">
+            <span class="closebtn" onclick="closeAlert()">&times;</span>
+            <p id="alertMessage"></p>
+        </div>
+    `;
+    document.body.appendChild(alertBox);
+}
+
+function showAlert(message) {
+    var alertBox = document.getElementById('customAlert');
+    if (!alertBox) {
+        createAlertBox();
+        alertBox = document.getElementById('customAlert');
+    }
+    document.getElementById('alertMessage').innerText = message;
+    alertBox.style.display = 'block';
+}
+
+function closeAlert() {
+    var alertBox = document.getElementById('customAlert');
+    if (alertBox) {
+        alertBox.style.display = 'none';
+    }
+}
+        function validate() {
+            var name = document.forms["Userdata"]["uname"].value;
+            var email = document.forms["Userdata"]["email"].value;
+            var passw = document.forms["Userdata"]["passw"].value;
+            var nameCheck = /^[a-zA-Z\s]+$/;
+            var emailCheck = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,4}$/i;
+            var passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,12}$/;
+
+            if (name == "") {
+            	showAlert("Name is required");
+                return false;
+            }
+            if (!name.match(nameCheck)) {
+            	showAlert("Name should contain only alphabets.");
+                return false;
+            }
+            if (!email.match(emailCheck)) {
+            	showAlert("Email should be like name@domain.com");
+                return false;
+            }
+            if (!passw.match(passwordCheck)) {
+            	showAlert("Password must be 6-12 characters and include at least one uppercase letter, one lowercase letter, and one number.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</html>

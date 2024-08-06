@@ -1,0 +1,40 @@
+@charset "ISO-8859-1";
+a { 
+text-decoration: none; 
+color: blue; 
+font-size: 20px; 
+margin: 20px; 
+display: inline; 
+}
+a:hover { 
+color: green; 
+}
+body > a:nth-child(5):hover{
+background-color:#E9EDD0;
+}
+body 
+{
+ font-family: Arial, sans-serif; 
+ font-size:20px;color:green;
+ }
+.welcome 
+{ display: none; 
+position: fixed; 
+top: 50%; 
+left: 50%; transform: translate(-50%, -50%); 
+background-color: white; 
+padding: 20px;
+box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+ z-index: 1000;
+  }
+.welcome.show 
+{ 
+display: block; 
+animation: popUp 0.5s ease-in-out; 
+}
+#click,#fin{
+font-size:25px;
+color:blue;
+}
+@keyframes popUp 
+{ from { opacity: 0; transform: translate(-50%, -60%); } to { opacity: 1; transform: translate(-50%, -50%); } }

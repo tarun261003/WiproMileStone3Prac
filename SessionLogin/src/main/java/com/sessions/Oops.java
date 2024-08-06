@@ -56,7 +56,7 @@ public class Oops extends HttpServlet {
 	    
 	    // Get session attributes
 	    if (session != null) {
-	        String name = (String) session.getAttribute("uname");
+	        String name = (String) session.getAttribute("name");
 	        String email = (String) session.getAttribute("email");
 	        
 	        // Display user information
